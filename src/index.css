@@ -1,0 +1,399 @@
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@layer components {
+  .soft-ui-button {
+    @apply bg-slate-100 shadow-[5px_5px_10px_#b8babe,-5px_-5px_10px_#ffffff] active:shadow-[inset_5px_5px_10px_#b8babe,inset_-5px_-5px_10px_#ffffff] transition-all duration-200;
+  }
+  .soft-ui-button-active {
+    @apply bg-slate-100 text-teal-500 shadow-[inset_5px_5px_10px_#b8babe,inset_-5px_-5px_10px_#ffffff];
+  }
+  .soft-ui-progress-track {
+    @apply bg-slate-200 rounded-full shadow-[inset_2px_2px_4px_#d1d9e6,inset_-2px_-2px_4px_#ffffff];
+  }
+  .range-slider {
+    -webkit-appearance: none;
+    @apply w-full h-2 bg-slate-200 rounded-lg cursor-pointer;
+  }
+  .range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    @apply w-5 h-5 bg-teal-500 rounded-full shadow-md cursor-pointer;
+  }
+  .range-slider::-moz-range-thumb {
+    @apply w-5 h-5 bg-teal-500 rounded-full shadow-md cursor-pointer border-none;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+
+  * {
+    @apply border-[hsl(var(--border))];
+  }
+  body {
+    @apply bg-background text-text font-body transition-colors duration-200;
+    font-family: "Inter", sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Poppins", sans-serif;
+  }
+}
+
+.dark body {
+  background: linear-gradient(-45deg, #10121a, #18191c, #232323, #0a0a23);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  background-attachment: fixed;
+}
+
+/* Background colors */
+.dark .bg-white {
+  @apply bg-gray-800;
+}
+
+.dark .bg-gray-50 {
+  @apply bg-gray-800;
+}
+
+.dark .bg-gray-100 {
+  @apply bg-gray-700;
+}
+
+.dark .bg-gray-200 {
+  @apply bg-gray-600;
+}
+
+/* Text colors */
+.dark .text-gray-900 {
+  @apply text-gray-100;
+}
+
+.dark .text-gray-800 {
+  @apply text-gray-200;
+}
+
+.dark .text-gray-700 {
+  @apply text-gray-300;
+}
+
+.dark .text-gray-600 {
+  @apply text-gray-400;
+}
+
+.dark .text-gray-500 {
+  @apply text-gray-400;
+}
+
+/* Border colors */
+.dark .border-gray-200 {
+  @apply border-gray-700;
+}
+
+.dark .border-gray-300 {
+  @apply border-gray-600;
+}
+
+/* Hover states */
+.dark .hover\:bg-gray-50:hover {
+  @apply hover:bg-gray-700;
+}
+
+.dark .hover\:bg-gray-100:hover {
+  @apply hover:bg-gray-600;
+}
+
+.dark .hover\:bg-gray-200:hover {
+  @apply hover:bg-gray-500;
+}
+
+/* Focus states */
+.dark .focus\:ring-blue-500:focus {
+  @apply focus:ring-blue-400;
+}
+
+/* Shadows */
+.dark .shadow-xl {
+  @apply shadow-gray-900/50;
+}
+
+.dark .shadow-lg {
+  @apply shadow-gray-900/40;
+}
+
+.dark .shadow {
+  @apply shadow-gray-900/30;
+}
+
+/* Form elements */
+.dark input,
+.dark select,
+.dark textarea {
+  @apply bg-gray-800 border-gray-700 text-gray-100 placeholder-gray-400;
+}
+
+.dark input:focus,
+.dark select:focus,
+.dark textarea:focus {
+  @apply border-blue-500 ring-blue-500;
+}
+
+/* Buttons */
+.dark .bg-blue-600 {
+  @apply bg-blue-500;
+}
+
+.dark .hover\:bg-blue-700:hover {
+  @apply hover:bg-blue-600;
+}
+
+.dark .bg-gradient-to-r {
+  @apply from-blue-600 to-indigo-600;
+}
+
+.dark .hover\:from-blue-600:hover {
+  @apply hover:from-blue-700;
+}
+
+.dark .hover\:to-indigo-700:hover {
+  @apply hover:to-indigo-800;
+}
+
+/* Links */
+.dark a {
+  @apply text-blue-400 hover:text-blue-300;
+}
+
+/* Cards */
+.dark .card {
+  @apply bg-gray-800 border-gray-700;
+}
+
+/* Tables */
+.dark table {
+  @apply border-gray-700;
+}
+
+.dark th {
+  @apply bg-gray-800 text-gray-200;
+}
+
+.dark td {
+  @apply border-gray-700;
+}
+
+/* Code blocks */
+.dark pre {
+  @apply bg-gray-800 border-gray-700;
+}
+
+.dark code {
+  @apply text-gray-300;
+}
+
+/* Dividers */
+.dark hr {
+  @apply border-gray-700;
+}
+
+/* Transitions */
+* {
+  @apply transition-colors duration-200;
+}
+
+@media print {
+  .a4-banner {
+    width: 210mm !important;
+    height: 297mm !important;
+    min-width: 210mm !important;
+    min-height: 297mm !important;
+    max-width: 210mm !important;
+    max-height: 297mm !important;
+    page-break-after: avoid;
+    page-break-before: avoid;
+    margin: 0 auto !important;
+    box-shadow: none !important;
+    border: 1px solid #2b4c7e !important;
+  }
+  body {
+    background: white !important;
+  }
+}
+
+.vitals-range-picker,
+.vitals-range-picker input {
+  background: transparent !important;
+  color: #fff !important;
+  border: 1.5px solid #222 !important;
+  border-radius: 8px !important;
+}
+
+.vitals-range-picker .ant-picker-input input {
+  background: transparent !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+.vitals-range-picker .ant-picker-active-bar {
+  background: #222 !important;
+}
+
+.vitals-range-picker .ant-picker-clear {
+  color: #fff !important;
+}
+
+.vitals-range-picker input::placeholder {
+  color: #fff !important;
+  opacity: 1 !important;
+}
+
+.vitals-select .ant-select-selector {
+  background: transparent !important;
+  color: #fff !important;
+  border: 1.5px solid #222 !important;
+  border-radius: 8px !important;
+}
+
+.vitals-select .ant-select-selection-item,
+.vitals-select .ant-select-selection-placeholder {
+  color: #fff !important;
+}
+
+.vitals-select .ant-select-arrow {
+  color: #fff !important;
+}
+
+.vitals-select .ant-select-dropdown {
+  background: #222 !important;
+  color: #fff !important;
+}
+
+.vitals-select .ant-select-item-option-content {
+  color: #fff !important;
+}
+
+/* Transparent background and light font utility */
+.transparent-bg {
+  background: transparent !important;
+  color: #f3f3f3 !important;
+}
+
+/* Ant Design overrides for dark/transparent look */
+.dark .ant-card,
+.dark .ant-modal-content,
+.dark .ant-table,
+.dark .ant-descriptions-view {
+  background: transparent !important;
+  color: #f3f3f3 !important;
+  border-color: #444 !important;
+}
+.dark .ant-card-head,
+.dark .ant-modal-header,
+.dark .ant-table-thead > tr > th,
+.dark .ant-descriptions-row > th {
+  background: rgba(34, 34, 34, 0.7) !important;
+  color: #f3f3f3 !important;
+}
+.dark .ant-table-tbody > tr > td,
+.dark .ant-descriptions-row > td {
+  background: rgba(34, 34, 34, 0.4) !important;
+  color: #f3f3f3 !important;
+}
+.dark .ant-modal-title {
+  color: #f3f3f3 !important;
+}
+.dark .ant-btn {
+  color: #f3f3f3 !important;
+  background: rgba(34, 34, 34, 0.2) !important;
+  border-color: #f3f3f3 !important;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
