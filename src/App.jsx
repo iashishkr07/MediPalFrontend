@@ -13,7 +13,6 @@ import DoctorPage from "./pages/DoctorPage";
 import AdminPanel from "./pages/AdminPanel/AdminPanel";
 import AnalyzeReport from "./pages/AnalyzeReport";
 import AiAnalyze from "./pages/AiAnalyze";
-import TextToSpeechDemo from "./pages/TextToSpeechDemo";
 import DoctorLogin from "./components/DoctorLogin";
 
 const App = () => {
@@ -73,15 +72,6 @@ const App = () => {
               <>
                 <Navbar />
                 <AiAnalyze />
-              </>
-            }
-          />
-          <Route
-            path="/text-to-speech"
-            element={
-              <>
-                <Navbar />
-                <TextToSpeechDemo />
               </>
             }
           />
