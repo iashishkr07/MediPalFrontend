@@ -343,6 +343,10 @@ const AddRecord = () => {
     console.log("Form data before validation:", formData);
 
     // Validate required fields
+    if (!aadharNo) {
+      toast.error("Aadhar number is required");
+      return;
+    }
     if (
       !formData.name ||
       !formData.age ||
@@ -413,7 +417,7 @@ const AddRecord = () => {
       const submitData = {
         ...formData,
         recordId: recordId,
-        aadharNo: userData?.AadharNo || formData.aadharNo,
+        aadharNo: aadharNo,
         mentalHealth: {
           ...formData.mentalHealth,
           anxiety: Boolean(formData.mentalHealth.anxiety),
