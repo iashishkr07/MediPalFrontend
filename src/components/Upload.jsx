@@ -10,7 +10,7 @@ import {
   theme,
 } from "antd";
 import { InboxOutlined, UploadOutlined } from "@ant-design/icons";
-import { useTheme } from "../context/ThemeContext";
+import { useTheme } from "../Context/ThemeContext";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import API from "../api";
